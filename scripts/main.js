@@ -1,6 +1,7 @@
 function translator(string) {
     string = string.replaceAll('eggegg', 'Egg');
-    return string.replaceAll('egg', '');
+    string = string.replaceAll('egg', '');
+    return string.toLowerCase();
 }
 function translator2(english) {
     let vowels = ['e', 'i', 'o', 'u', 'a'];
