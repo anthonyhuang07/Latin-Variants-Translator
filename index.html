@@ -5,7 +5,7 @@
         <title>English & Egg Latin Translator</title>
         <meta content="English {-} Egg Latin Translator" property="og:title" />
         <meta content="A language to translate English and Egg Latin, forwards and back!" property="og:description" />
-        <meta content="https://anthonyhuang07.github.io" property="og:url" />
+        <meta content="https://anthonyhuang07.github.io/English-Egg-Latin-Translator/" property="og:url" />
         <meta content="https://i.imgur.com/mU0RScm.png" property="og:image" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,53 +14,43 @@
         <link rel="icon" type="image/x-icon" href="https://i.imgur.com/mU0RScm.png">
         <link rel="stylesheet" href="styles/main.css">
         <style>
-            main a{
-                text-decoration: underline;
+            #eg-eng{
+                display:none;
             }
 
-            @media screen and (max-width: 500px){
-                main img{
-                    width: 175px;
-                }
-            }
-
-            article{
-                margin: auto;
-                background-color:hsl(200, 10%, 10%);
-                display: flex;
-                padding: 2rem 0 2rem 5rem;
-                text-align: left;
-                width: 90%;
-                border-radius: 2rem;
-                justify-content: space-between;
-                flex-direction: row;
-                align-items: center;
-            } article p{
-                margin: 0;
-                text-align: left;
-                width: 70%;
-            } article img{
-                float: right;
-                margin-right: 5rem;
+            #titler2{
+                display:none;
             }
         </style>
     </head>
     <body>
-        <main>
-            <div class="rect"></div>    
+        <main> 
             <div class="cool">
-                <h1 id="title"></h1>
+                <h1>English <=> Egg Latin <span class="date">Translator!</span></h1>
             </div>
             <article>
-                <p>Hey! I'm FHDHGNGN/anthonyhuang07! I am a front-end programmer mainly focusing on HTML, CSS and JavaScript. This website was made with vanilla HTML/CSS/JS and deployed with GitHub Pages. Check out the other pages on this website to learn more about me! <br><br>Click <a href="./src/extras/error.html">here</a> to own the google.com domain for free!</p>
-                <img src="https://i.imgur.com/0ZBQP5A.gif" alt="neon stickman dancing gif" width="250px"/>
+                <h2 id="titler">English => Egg Latin</h2>
+                <h2 id="titler2">Egg Latin => English</h2>
+                <button type="button" id="switch">Switch</button><br><br>
+                <form id="eng-eg">
+                    <textarea placeholder="English..." oninput="check(this.value);"></textarea><br><br>
+                    <textarea id="egglatin" placeholder="Eggegg Leggateggin..." readonly></textarea>
+                    <br>
+                </form>
+                <form id="eg-eng">
+                    <textarea placeholder="Eggegg Leggateggin..." oninput="check2(this.value);"></textarea><br><br>
+                    <textarea id="english" placeholder="English..." readonly></textarea>
+                    <br>
+                </form>
+                <br>
+                <h2>What is Egg Latin?</h2><br>
+                <p>Egg Latin is a variant of Pig Latin, in which every vowel in a word precedes with the word Egg. <br> <br>For example, Hello would be Heggelleggo (H[egg]ell[egg]o). <br><br>Of course you wouldn't add another egg preceding the 'e' in an egg you just added, because that would just make an infinite loop. <br><br>(The egg in H[egg]elleggo would never be H[eggegg]elleggo). <br><br>However, when the english sentence contains the word Egg in the original sentence, you would still add an egg behind it, making it eggegg.</p>
             </article>
             <hr>
+            <footer>
+                <a href="https://github.com/anthonyhuang07/English-Egg-Latin-Translator/tree/master">Copyright (c) 2022 Anthony Huang</a>
+            </footer>
         </main>
-        <script src="scripts/index.js"></script>
-        <script>
-            let current = new Date();
-            document.getElementById("title").innerHTML = `Hello! Today is <span class="date">${current.toLocaleDateString()}.</span>`;
-        </script>
+        <script src="scripts/main.js"></script>
     </body>
 </html>

@@ -4,7 +4,7 @@
         "module": "ESNext",
         "lib": [
             "dom", 
-            "esnext"
+            "esnext",
         ],
         "allowJs": true,
         "watch": true,

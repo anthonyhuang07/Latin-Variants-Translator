@@ -2,8 +2,6 @@ function translator(string: string): string{
     return string.replaceAll('egg', '')
 }
 
-console.log(translator("feggiregge eggexteggingeggueggisheggers eggaregge ceggoeggol leggikegge yeggoeggu"))
-
 function translator2(english: string): string {
     let vowels = ['e', 'i', 'o', 'u', 'a']
     const egg = "egg"
@@ -19,7 +17,34 @@ function translator2(english: string): string {
     return english
 }
 
-console.log(translator2("fire extinguishers are cool like you"))
-//feggiregge eggexteggingeggueggisheggers eggaregge ceggoeggol leggikegge yeggoeggu
-//feggiregge eggexteggingeggueggisheggers eggaregge ceggoeggol leggikegge yeggoeggu
+const engrish = (document.getElementById("english") as HTMLInputElement)
+const eglatin = (document.getElementById("egglatin") as HTMLInputElement)
+const btn = (document.getElementById("switch") as HTMLInputElement)
+const engeg = (document.getElementById("eng-eg") as HTMLInputElement)
+const egeng = (document.getElementById("eg-eng") as HTMLInputElement)
+const title = (document.getElementById("titler") as HTMLInputElement)
+const title2 = (document.getElementById("titler2") as HTMLInputElement)
 
+function check(value: string){
+    eglatin.value = translator2(value)
+}
+
+function check2(value: string){
+    engrish.value = translator(value)
+}
+
+btn.addEventListener('click', toggle);
+
+function toggle(){
+    if(engeg.style.display === "none"){
+        engeg.style.display = "block";
+        egeng.style.display = "none";
+        title.style.display = "block";
+        title2.style.display = "none";
+    } else if(engeg.style.display !== "none"){
+        engeg.style.display = "none";
+        egeng.style.display = "block";
+        title2.style.display = "block";
+        title.style.display = "none";
+    }
+}
