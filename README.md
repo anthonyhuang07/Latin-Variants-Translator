@@ -1,4 +1,4 @@
-# Egg Latin + English Translator
+# Egg Latin Translator
 
 A translator for English and Egg Latin, able to translate forwards and back.
 
