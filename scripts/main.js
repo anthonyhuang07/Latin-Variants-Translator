@@ -1,4 +1,5 @@
 function translator(string) {
+    string = string.replaceAll('eggegg', 'Egg');
     return string.replaceAll('egg', '');
 }
 function translator2(english) {

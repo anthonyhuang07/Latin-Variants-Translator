@@ -1,4 +1,5 @@
 function translator(string: string): string{
+    string = string.replaceAll('eggegg', 'Egg')
     return string.replaceAll('egg', '')
 }
 
@@ -25,17 +26,17 @@ const egeng = (document.getElementById("eg-eng") as HTMLInputElement)
 const title = (document.getElementById("titler") as HTMLInputElement)
 const title2 = (document.getElementById("titler2") as HTMLInputElement)
 
-function check(value: string){
+function check(value: string): void{
     eglatin.value = translator2(value)
 }
 
-function check2(value: string){
+function check2(value: string): void{
     engrish.value = translator(value)
 }
 
 btn.addEventListener('click', toggle);
 
-function toggle(){
+function toggle(): void{
     if(engeg.style.display === "none"){
         engeg.style.display = "block";
         egeng.style.display = "none";
