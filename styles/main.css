@@ -18,7 +18,8 @@ body{
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    background-color:hsl(240, 25%, 5%);
+    background-color:
+    hsl(240, 25%, 5%);
 }
 
 main{
@@ -142,4 +143,42 @@ button{
 } button:hover{
     cursor: pointer;
     background-color:#ff6600;
+}
+
+@media screen and (max-width: 900px){
+    .cool{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        padding: 2rem 2rem 2rem;
+        font-size: 1.5em;
+    }
+
+    main textarea{
+        font-size: 1.5em;
+        width: 80%;
+        height: 12.5rem;
+    } main p{
+        font-size: 1.5em;
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .cool{
+        position: relative;
+        margin: 0;
+        width: 100%;
+        padding: 2rem 2rem 2rem;
+        font-size: 1em;
+    }
+
+    main textarea{
+        font-size: 1.1em;
+        width: 80%;
+        height: 12.5rem;
+    } main p{
+        font-size: 1.1em;
+        width: 90%;
+    }
 }
