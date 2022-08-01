@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <title>English & Egg Latin Translator</title>
+        <meta content="English {-} Egg Latin Translator" property="og:title" />
+        <meta content="A language to translate English and Egg Latin, forwards and back!" property="og:description" />
+        <meta content="https://anthonyhuang07.github.io" property="og:url" />
+        <meta content="https://i.imgur.com/mU0RScm.png" property="og:image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Fira+Code&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/mU0RScm.png">
+        <link rel="stylesheet" href="styles/main.css">
+        <style>
+            main a{
+                text-decoration: underline;
+            }
+
+            @media screen and (max-width: 500px){
+                main img{
+                    width: 175px;
+                }
+            }
+
+            article{
+                margin: auto;
+                background-color:hsl(200, 10%, 10%);
+                display: flex;
+                padding: 2rem 0 2rem 5rem;
+                text-align: left;
+                width: 90%;
+                border-radius: 2rem;
+                justify-content: space-between;
+                flex-direction: row;
+                align-items: center;
+            } article p{
+                margin: 0;
+                text-align: left;
+                width: 70%;
+            } article img{
+                float: right;
+                margin-right: 5rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="rect"></div>    
+            <div class="cool">
+                <h1 id="title"></h1>
+            </div>
+            <article>
+                <p>Hey! I'm FHDHGNGN/anthonyhuang07! I am a front-end programmer mainly focusing on HTML, CSS and JavaScript. This website was made with vanilla HTML/CSS/JS and deployed with GitHub Pages. Check out the other pages on this website to learn more about me! <br><br>Click <a href="./src/extras/error.html">here</a> to own the google.com domain for free!</p>
+                <img src="https://i.imgur.com/0ZBQP5A.gif" alt="neon stickman dancing gif" width="250px"/>
+            </article>
+            <hr>
+        </main>
+        <script src="scripts/index.js"></script>
+        <script>
+            let current = new Date();
+            document.getElementById("title").innerHTML = `Hello! Today is <span class="date">${current.toLocaleDateString()}.</span>`;
+        </script>
+    </body>
+</html>
