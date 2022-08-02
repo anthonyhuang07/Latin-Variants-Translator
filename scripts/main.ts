@@ -33,6 +33,7 @@ function translator2(english: string): string {
         syllsVowelNew[i] = syllsVowelNew[i].replace(syllsVowelOg[i], egg+syllsVowelOg[i])
         syllsFull[i] = syllsFull[i].replace(syllsVowelOg[i], syllsVowelNew[i])
         english = syllsFull.join('')
+        english = english.replaceAll('eggy', 'y')
         console.log(syllsVowelOg); console.log(syllsVowelNew); console.log(syllsFull);  
     }
 
