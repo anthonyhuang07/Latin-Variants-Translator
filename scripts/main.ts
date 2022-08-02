@@ -21,22 +21,21 @@ function translator2(english: string): string {
 
     english = english.toLowerCase()
 
-    let syllsVowelOg: string[] = syllables(english) 
-    let syllsVowelNew: string[] = syllables(english)
+    let syllsVowel: string[] = syllables(english) 
     let syllsFull: string[] = english.match(syllableRegex);
 
     function syllables(words: string): any {
         words = words.toLowerCase();                                    
         if(words.length <= 2) { return 1; }                            
-          words = words.replace(/(?:[^leiouay]e|ed|[^leiouay]e)$/, '');                     
+          words = words.replace(/(?:[^leiouay]re|ed|[^leiouay]e)$/, '');                     
           return words.match(/[eiouay]{1,2}/g);                                  
     }
 
-    for(let i=0; i < syllsFull.length; i++) { 
-        syllsVowelNew[i] = syllsVowelNew[i].replace(syllsVowelOg[i], egg+syllsVowelOg[i])
-        syllsFull[i] = syllsFull[i].replace(syllsVowelOg[i], syllsVowelNew[i])
+    for(let i in syllsFull) { 
+        syllsFull[i] = syllsFull[i].replace(syllsVowel[i], egg+syllsVowel[i]);
         english = syllsFull.join('')
-        console.log(syllsVowelOg); console.log(syllsVowelNew); console.log(syllsFull);  
+        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y')
+        console.log(syllsVowel); console.log(syllsFull);  
     }
 
     return english

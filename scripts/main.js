@@ -16,23 +16,21 @@ function translator2(english) {
     const egg = "egg";
     const syllableRegex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
     english = english.toLowerCase();
-    let syllsVowelOg = syllables(english);
-    let syllsVowelNew = syllables(english);
+    let syllsVowel = syllables(english);
     let syllsFull = english.match(syllableRegex);
     function syllables(words) {
         words = words.toLowerCase();
         if (words.length <= 2) {
             return 1;
         }
-        words = words.replace(/(?:[^leiouay]e|ed|[^leiouay]e)$/, '');
+        words = words.replace(/(?:[^leiouay]re|ed|[^leiouay]e)$/, '');
         return words.match(/[eiouay]{1,2}/g);
     }
-    for (let i = 0; i < syllsFull.length; i++) {
-        syllsVowelNew[i] = syllsVowelNew[i].replace(syllsVowelOg[i], egg + syllsVowelOg[i]);
-        syllsFull[i] = syllsFull[i].replace(syllsVowelOg[i], syllsVowelNew[i]);
+    for (let i in syllsFull) {
+        syllsFull[i] = syllsFull[i].replace(syllsVowel[i], egg + syllsVowel[i]);
         english = syllsFull.join('');
-        console.log(syllsVowelOg);
-        console.log(syllsVowelNew);
+        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y');
+        console.log(syllsVowel);
         console.log(syllsFull);
     }
     return english;
