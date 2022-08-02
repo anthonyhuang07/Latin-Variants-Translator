@@ -12,6 +12,10 @@ function translator(string: string): string{
  */
 
 function translator2(english: string): string {
+    if(!syllables(english)){
+        return english;
+    }
+
     const egg: string = "egg"
     const syllableRegex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
 
@@ -24,16 +28,14 @@ function translator2(english: string): string {
     function syllables(words: string): any {
         words = words.toLowerCase();                                    
         if(words.length <= 2) { return 1; }                            
-          words = words.replace(/(?:[^leiouay]es|ed|[^leiouay]e)$/, '');
-          words = words.replace(/^y/, '');                             
-          return words.match(/[eiouay]{1,2}/g);                 
+          words = words.replace(/(?:[^leiouay]e|ed|[^leiouay]e)$/, '');                     
+          return words.match(/[eiouay]{1,2}/g);                                  
     }
 
     for(let i=0; i < syllsFull.length; i++) { 
         syllsVowelNew[i] = syllsVowelNew[i].replace(syllsVowelOg[i], egg+syllsVowelOg[i])
         syllsFull[i] = syllsFull[i].replace(syllsVowelOg[i], syllsVowelNew[i])
         english = syllsFull.join('')
-        english = english.replaceAll('eggy', 'y')
         console.log(syllsVowelOg); console.log(syllsVowelNew); console.log(syllsFull);  
     }
 
