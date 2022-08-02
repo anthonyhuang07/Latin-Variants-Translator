@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <title>Pig Latin Translator</title>
+        <meta content="Pig Latin Translator" property="og:title" />
+        <meta content="A language to translate English and Pig Latin, forwards and back!" property="og:description" />
+        <meta content="https://anthonyhuang07.github.io/Latin-Variants-Translator/" property="og:url" />
+        <meta content="https://i.imgur.com/mU0RScm.png" property="og:image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Fira+Code&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/mU0RScm.png">
+        <link rel="stylesheet" href="../styles/main.css">
+        <style>
+            #eg-eng{
+                display:none;
+            }
+
+            #titler2{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <main> 
+            <div class="cool">
+                <h1>Pig Latin <span class="date">Translator!</span></h1>
+                <button type="button"><a href="../index.html" style="color: black; ">Go Back Home</a></button>
+            </div>
+            <article>
+                <h2 id="titler">English ➡️ Pig Latin</h2>
+                <h2 id="titler2">Pig Latin ➡️ English</h2>
+                <button type="button" id="switch">Switch</button><br><br>
+                <form id="eng-eg">
+                    <textarea placeholder="English..." oninput="check(this.value);"></textarea><br><br>
+                    <textarea id="egglatin" placeholder="Igpay Atinlay..." readonly></textarea>
+                    <br>
+                </form>
+                <form id="eg-eng">
+                    <textarea placeholder="Igpay Atinlay..." oninput="check2(this.value);"></textarea><br><br>
+                    <textarea id="english" placeholder="English..." readonly></textarea>
+                    <br>
+                </form>
+                <br>
+                <h2>What is Pig Latin?</h2><br>
+                <p>Pig Latin is a part of the joke latin languages, in which every vowel in a syllable precedes with the word Egg. <br> <br>For example, Hello would be Heggelleggo (H[egg]ell[egg]o) which has 2 syllables with a vowel in each of them, which makes 2 eggs. <br><br>Of course you wouldn't add another egg preceding the 'e' in an egg you just added, because that would just make an infinite loop. <br><br>(The egg in H[egg]elleggo would never be H[eggegg]elleggo). <br><br>However, when the english sentence contains the word Egg in the original sentence, you would still add an egg behind it, making it eggegg.<br><br>If there's a word like Tea, which has 2 vowels in 1 syllable, you would only add egg to the first one, making Teggea instead of Teggeegga.</p>
+            </article>
+            <hr>
+            <footer>
+                <a href="https://github.com/anthonyhuang07/Latin-Variants-Translator/">Copyright (c) 2022 Anthony Huang</a>
+            </footer>
+        </main>
+        <script src="../scripts/piglatin.js"></script>
+    </body>
+</html>

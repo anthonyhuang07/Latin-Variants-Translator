@@ -145,6 +145,21 @@ button{
     background-color:#ff6600;
 }
 
+div button a{
+    border: none;
+    padding: 1rem;
+    font-size:20px;
+    font-family:'Aldrich', Helvetica, sans-serif;
+    background-color: #ff7700;
+    border-radius: 0.8rem;
+    transition: background-color 0.3s;
+    text-shadow: none;
+} button a:hover{
+    text-shadow: none;
+    cursor: pointer;
+    background-color:#ff6600;
+}
+
 @media screen and (max-width: 900px){
     .cool{
         position: relative;

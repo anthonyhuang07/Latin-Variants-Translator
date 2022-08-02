@@ -34,7 +34,7 @@ function translator2(english: string): string {
     for(let i in syllsFull) { 
         syllsFull[i] = syllsFull[i].replace(syllsVowel[i], egg+syllsVowel[i]);
         english = syllsFull.join('')
-        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y')
+        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y').replaceAll('ye', 'yegge')
         console.log(syllsVowel); console.log(syllsFull);  
     }
 
