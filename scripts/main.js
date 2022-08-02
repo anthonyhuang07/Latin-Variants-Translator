@@ -15,7 +15,7 @@ function translator2(english) {
     english = english.toLowerCase();
     let syllsVowelOg = syllables(english);
     let syllsVowelNew = syllables(english);
-    let syllsFull = syllables2(english);
+    let syllsFull = english.match(syllableRegex);
     function syllables(words) {
         words = words.toLowerCase();
         if (words.length <= 2) {
@@ -24,9 +24,6 @@ function translator2(english) {
         words = words.replace(/(?:[^leiouay]es|ed|[^leiouay]e)$/, '');
         words = words.replace(/^y/, '');
         return words.match(/[eiouay]{1,2}/g);
-    }
-    function syllables2(words2) {
-        return words2.match(syllableRegex);
     }
     for (let i = 0; i < syllsFull.length; i++) {
         syllsVowelNew[i] = syllsVowelNew[i].replace(syllsVowelOg[i], egg + syllsVowelOg[i]);

@@ -12,14 +12,14 @@ function translator(string: string): string{
  */
 
 function translator2(english: string): string {
-    const egg = "egg"
+    const egg: string = "egg"
     const syllableRegex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
 
     english = english.toLowerCase()
 
     let syllsVowelOg: string[] = syllables(english) 
     let syllsVowelNew: string[] = syllables(english)
-    let syllsFull: string[] = syllables2(english)
+    let syllsFull: string[] = english.match(syllableRegex);
 
     function syllables(words: string): any {
         words = words.toLowerCase();                                    
@@ -27,10 +27,6 @@ function translator2(english: string): string {
           words = words.replace(/(?:[^leiouay]es|ed|[^leiouay]e)$/, '');
           words = words.replace(/^y/, '');                             
           return words.match(/[eiouay]{1,2}/g);                 
-    }
-
-    function syllables2(words2: string): any {
-        return words2.match(syllableRegex);
     }
 
     for(let i=0; i < syllsFull.length; i++) { 
