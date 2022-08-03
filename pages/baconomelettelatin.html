@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "utf-8">
+        <title>Pig Latin Translator</title>
+        <meta content="Pig Latin Translator" property="og:title" />
+        <meta content="A language to translate English and Pig Latin, forwards and back!" property="og:description" />
+        <meta content="https://anthonyhuang07.github.io/Latin-Variants-Translator/" property="og:url" />
+        <meta content="https://i.imgur.com/mU0RScm.png" property="og:image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Aldrich&family=Fira+Code&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/mU0RScm.png">
+        <link rel="stylesheet" href="../styles/main.css">
+        <style>
+            #pig-eng{
+                display:none;
+            }
+
+            #pigTitler2{
+                display:none;
+            }
+        </style>
+    </head>
+    <body>
+        <main> 
+            <div class="cool">
+                <h1>Pig Latin <span class="date">Translator!</span></h1>
+                <button type="button"><a href="../index.html" style="color: black; ">Go Back Home</a></button>
+            </div>
+            <article>
+                <h2 id="pigTitler">English ➡️ Pig Latin</h2>
+                <h2 id="pigTitler2">Pig Latin ➡️ English</h2>
+                <button type="button" id="pigSwitch">Switch</button><br><br>
+                <form id="eng-pig">
+                    <textarea placeholder="English..." oninput="pigCheck(this.value);"></textarea><br><br>
+                    <textarea id="pigLatin" placeholder="Igpay Atinlay..." readonly></textarea>
+                    <br>
+                </form>
+                <form id="pig-eng">
+                    <textarea placeholder="Igpay Atinlay..." oninput="pigCheck2(this.value);"></textarea><br><br>
+                    <textarea id="pigEnglish" placeholder="English..." readonly></textarea>
+                    <br>
+                </form>
+                <br>
+                <h2>What is Pig Latin?</h2><br>
+                <p>Pig Latin is a part of the joke latin languages, in which every word ends with (first letter of a word)ay. <br> <br>For example, Hello would be ellohay (or ello-hay). the h at the beginning got moved to the end, then add an ay.<br><br> One exception is when a word starts with a vowel, the first letter doesn't move, and instead of ending with ay, the word ends with yay. For example, Asterisk would be Asteriskyay.</p>
+            </article>
+            <hr>
+            <footer>
+                <a href="https://github.com/anthonyhuang07/Latin-Variants-Translator/">Copyright (c) 2022 Anthony Huang</a>
+            </footer>
+        </main>
+        <script src="../scripts/piglatin.js"></script>
+    </body>
+</html>
