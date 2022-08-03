@@ -1,9 +1,18 @@
 function pigTranslator(stringer) {
-    let stringArray = stringer.match(/\b(\w+\W+)/g);
-    for (let a in Array) {
-        let currentArray = stringArray[a];
-        currentArray = currentArray.splice(-3, 3);
+    let stringArray = stringer.split(" ");
+    console.log(stringArray);
+    for (let a in stringArray) {
+        let currentArray = [...stringArray[a]];
+        currentArray = currentArray.slice(0, -2);
+        currentArray.unshift(currentArray.pop());
+        if (currentArray.at(-1) === '-') {
+            currentArray.pop();
+        }
+        console.log(currentArray);
+        stringArray[a] = currentArray.join('');
+        console.log(stringArray);
     }
+    stringer = stringArray.join(' ');
     return stringer;
 }
 /**
@@ -12,57 +21,67 @@ function pigTranslator(stringer) {
  * Test1: eggaspeggareggageggus eggis ceggool
  * Test2: eggaspeggareggageggus eggis ceggool
  */
-function pigTranslator2(english) {
-    if (!syllables(english)) {
-        return english;
-    }
-    const egg = "egg";
-    const syllableRegex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
-    english = english.toLowerCase();
-    let syllsVowel = syllables(english);
-    let syllsFull = english.match(syllableRegex);
-    function syllables(words) {
-        words = words.toLowerCase();
-        if (words.length <= 2) {
-            return 1;
+function pigTranslator2(stringer) {
+    stringer = stringer.toLowerCase();
+    let stringArray = stringer.split(" ");
+    const vowels = /[aeiou]/gi;
+    const punctuationReg = /[!#$%&()*+?,-./:;<=>@[\]^_`{|}~]/g;
+    console.log(stringArray);
+    for (let a in stringArray) {
+        let currentArray = [...stringArray[a]];
+        if (currentArray[0].match(vowels)) {
+            if (currentArray.at(-1).match(punctuationReg)) {
+                let punctuation = currentArray.pop();
+                currentArray.push("yay");
+                currentArray.push(punctuation);
+            }
+            else {
+                currentArray.push("yay");
+            }
         }
-        words = words.replace(/(?:[^leiouay]re|ed|[^leiouay]e)$/, '');
-        return words.match(/[eiouay]{1,2}/g);
+        else {
+            if (currentArray.at(-1).match(punctuationReg)) {
+                let punctuation = currentArray.pop();
+                currentArray.push(currentArray.shift());
+                currentArray.push("ay");
+                currentArray.push(punctuation);
+            }
+            else {
+                currentArray.push(currentArray.shift());
+                currentArray.push("ay");
+            }
+        }
+        stringArray[a] = currentArray.join('');
+        console.log(stringArray);
     }
-    for (let i in syllsFull) {
-        syllsFull[i] = syllsFull[i].replace(syllsVowel[i], egg + syllsVowel[i]);
-        english = syllsFull.join('');
-        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y').replaceAll('ye', 'yegge');
-        console.log(syllsVowel);
-        console.log(syllsFull);
-    }
-    return english;
+    stringer = stringArray.join(' ');
+    return stringer;
 }
-const pigEngrish = document.getElementById("english");
-const pigLatin = document.getElementById("egglatin");
-const pigBtn = document.getElementById("switch");
-const engpig = document.getElementById("eng-eg");
-const pigeng = document.getElementById("eg-eng");
-const pigTitle = document.getElementById("titler");
-const pigTitle2 = document.getElementById("titler2");
+const pigEngrish = document.getElementById("pigEnglish");
+const pigLatin = document.getElementById("pigLatin");
+const pigBtn = document.getElementById("pigSwitch");
+const engpig = document.getElementById("eng-pig");
+const pigeng = document.getElementById("pig-eng");
+const pigTitle = document.getElementById("pigTitler");
+const pigTitle2 = document.getElementById("pigTitler2");
 function pigCheck(value) {
-    eglatin.value = translator2(value);
+    pigLatin.value = pigTranslator2(value);
 }
 function pigCheck2(value) {
-    engrish.value = translator(value);
+    pigEngrish.value = pigTranslator(value);
 }
-btn.addEventListener('click', toggle);
+pigBtn.addEventListener('click', pigToggle);
 function pigToggle() {
-    if (engeg.style.display === "none") {
-        engeg.style.display = "block";
-        egeng.style.display = "none";
-        title.style.display = "block";
-        title2.style.display = "none";
+    if (engpig.style.display === "none") {
+        engpig.style.display = "block";
+        pigeng.style.display = "none";
+        pigTitle.style.display = "block";
+        pigTitle2.style.display = "none";
     }
-    else if (engeg.style.display !== "none") {
-        engeg.style.display = "none";
-        egeng.style.display = "block";
-        title2.style.display = "block";
-        title.style.display = "none";
+    else if (engpig.style.display !== "none") {
+        engpig.style.display = "none";
+        pigeng.style.display = "block";
+        pigTitle2.style.display = "block";
+        pigTitle.style.display = "none";
     }
 }

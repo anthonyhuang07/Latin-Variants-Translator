@@ -60,14 +60,14 @@ function check2(value: string): void{
 btn.addEventListener('click', toggle);
 
 function toggle(): void{
-    if(engeg.style.display === "none"){
-        engeg.style.display = "block";
-        egeng.style.display = "none";
+    if(engpig.style.display === "none"){
+        engpig.style.display = "block";
+        pigeng.style.display = "none";
         title.style.display = "block";
         title2.style.display = "none";
-    } else if(engeg.style.display !== "none"){
-        engeg.style.display = "none";
-        egeng.style.display = "block";
+    } else if(engpig.style.display !== "none"){
+        engpig.style.display = "none";
+        pigeng.style.display = "block";
         title2.style.display = "block";
         title.style.display = "none";
     }

@@ -1,9 +1,18 @@
 function pigTranslator(stringer: string): string{
-    let stringArray: string[] = stringer.match(/\b(\w+\W+)/g)
-    for(let a in Array){
-        let currentArray: string[] = stringArray[a]
-        currentArray = currentArray.splice(-3, 3)
+    let stringArray: string[] = stringer.split(" ")
+    console.log(stringArray)
+    for(let a in stringArray){
+        let currentArray: string[] = [...stringArray[a]]
+        currentArray = currentArray.slice(0, -2)
+        currentArray.unshift(currentArray.pop());
+        if(currentArray.at(-1) === '-'){
+          currentArray.pop()
+        }
+        console.log(currentArray)
+        stringArray[a] = currentArray.join('')
+        console.log(stringArray)
     }
+    stringer = stringArray.join(' ')
     return stringer
 }
 
@@ -14,65 +23,69 @@ function pigTranslator(stringer: string): string{
  * Test2: eggaspeggareggageggus eggis ceggool
  */
 
-function pigTranslator2(english: string): string {
-    if(!syllables(english)){
-        return english;
+ function pigTranslator2(stringer: string): string{
+    stringer = stringer.toLowerCase()
+    let stringArray: string[] = stringer.split(" ")
+    const vowels: RegExp = /[aeiou]/gi
+    const punctuationReg: RegExp = /[!#$%&()*+?,-./:;<=>@[\]^_`{|}~]/g
+    console.log(stringArray)
+    for(let a in stringArray){
+        let currentArray: string[] = [...stringArray[a]]
+        if(currentArray[0].match(vowels)){
+          if(currentArray.at(-1).match(punctuationReg)){
+            let punctuation = currentArray.pop()
+            currentArray.push("yay")
+            currentArray.push(punctuation)
+          } else{
+            currentArray.push("yay")
+          }
+        } else{
+          if(currentArray.at(-1).match(punctuationReg)){
+            let punctuation = currentArray.pop()
+            currentArray.push(currentArray.shift());
+            currentArray.push("ay")
+            currentArray.push(punctuation)
+          } else{
+            currentArray.push(currentArray.shift());
+            currentArray.push("ay")
+          }
+        }
+        stringArray[a] = currentArray.join('')
+        console.log(stringArray)
     }
-
-    const egg: string = "egg"
-    const syllableRegex = /[^aeiouy]*[aeiouy]+(?:[^aeiouy]*$|[^aeiouy](?=[^aeiouy]))?/gi;
-
-    english = english.toLowerCase()
-
-    let syllsVowel: string[] = syllables(english) 
-    let syllsFull: string[] = english.match(syllableRegex);
-
-    function syllables(words: string): any {
-        words = words.toLowerCase();                                    
-        if(words.length <= 2) { return 1; }                            
-          words = words.replace(/(?:[^leiouay]re|ed|[^leiouay]e)$/, '');                     
-          return words.match(/[eiouay]{1,2}/g);                                  
-    }
-
-    for(let i in syllsFull) { 
-        syllsFull[i] = syllsFull[i].replace(syllsVowel[i], egg+syllsVowel[i]);
-        english = syllsFull.join('')
-        english = english.replaceAll('regge ', 're ').replaceAll('eggy', 'y').replaceAll('ye', 'yegge')
-        console.log(syllsVowel); console.log(syllsFull);  
-    }
-
-    return english
+    stringer = stringArray.join(' ')
+    return stringer
 }
 
-const pigEngrish = (document.getElementById("english") as HTMLInputElement)
-const pigLatin = (document.getElementById("egglatin") as HTMLInputElement)
-const pigBtn = (document.getElementById("switch") as HTMLInputElement)
-const engpig = (document.getElementById("eng-eg") as HTMLInputElement)
-const pigeng = (document.getElementById("eg-eng") as HTMLInputElement)
-const pigTitle = (document.getElementById("titler") as HTMLInputElement)
-const pigTitle2 = (document.getElementById("titler2") as HTMLInputElement)
+const pigEngrish = (document.getElementById("pigEnglish") as HTMLInputElement)
+const pigLatin = (document.getElementById("pigLatin") as HTMLInputElement)
+const pigBtn = (document.getElementById("pigSwitch") as HTMLInputElement)
+const engpig = (document.getElementById("eng-pig") as HTMLInputElement)
+const pigeng = (document.getElementById("pig-eng") as HTMLInputElement)
+const pigTitle = (document.getElementById("pigTitler") as HTMLInputElement)
+const pigTitle2 = (document.getElementById("pigTitler2") as HTMLInputElement)
 
 function pigCheck(value: string): void{
-    eglatin.value = translator2(value)
+    pigLatin.value = pigTranslator2(value)
 }
 
 function pigCheck2(value: string): void{
-    engrish.value = translator(value)
+    pigEngrish.value = pigTranslator(value)
 }
 
-btn.addEventListener('click', toggle);
+pigBtn.addEventListener('click', pigToggle);
 
 function pigToggle(): void{
-    if(engeg.style.display === "none"){
-        engeg.style.display = "block";
-        egeng.style.display = "none";
-        title.style.display = "block";
-        title2.style.display = "none";
-    } else if(engeg.style.display !== "none"){
-        engeg.style.display = "none";
-        egeng.style.display = "block";
-        title2.style.display = "block";
-        title.style.display = "none";
+    if(engpig.style.display === "none"){
+        engpig.style.display = "block";
+        pigeng.style.display = "none";
+        pigTitle.style.display = "block";
+        pigTitle2.style.display = "none";
+    } else if(engpig.style.display !== "none"){
+        engpig.style.display = "none";
+        pigeng.style.display = "block";
+        pigTitle2.style.display = "block";
+        pigTitle.style.display = "none";
     }
 }
 
