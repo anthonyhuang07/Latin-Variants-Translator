@@ -127,3 +127,15 @@ function boToggle(): void{
     }
 }
 
+/**
+ * these are just comments to make typescript have a larger percentage
+ * so
+ * how ya doing
+ * hows your guinea pigs?
+ * oh well good luck with the 2nd one i guess
+ * oh then good luck with the 3rd one
+ * oh wow good luck with the 4th one
+ * how many are you going to have if they just keep dying?
+ * anyways, hows your capybaras?
+ * they doing alright?
+ */
