@@ -1,16 +1,20 @@
 function pigTranslator(stringer) {
-    let stringArray = stringer.split(" ");
+    let stringArray = stringer.split(" "); //splits the text into an array of words
     console.log(stringArray);
-    for (let a in stringArray) {
+    for (let a in stringArray) { //for every word in array
         let currentArray = [...stringArray[a]];
         currentArray = currentArray.slice(0, -2);
-        currentArray.unshift(currentArray.pop());
+        console.log("the" + currentArray);
+        if (currentArray.at(-1) === 'y') {
+            currentArray.pop();
+        }
+        else {
+            currentArray.unshift(currentArray.pop());
+        }
         if (currentArray.at(-1) === '-') {
             currentArray.pop();
         }
-        console.log(currentArray);
         stringArray[a] = currentArray.join('');
-        console.log(stringArray);
     }
     stringer = stringArray.join(' ');
     return stringer;
