@@ -1,2 +1,4 @@
 *.html linguist-vendored
-/pages/bolatin.html linguist-vendored
+./pages/bolatin.html linguist-vendored
+
+# please ignore this file thanks :troll:
