@@ -1,5 +1,7 @@
 # Latin Variants Translator
 
+UPDATE: No longer maintained due to complexity of some languages (e.g. Pig Latin)
+
 A translator for Pig Latin, Egg Latin, and Bacon Omelette Latin.
 
 My first project using TypeScript.
